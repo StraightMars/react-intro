@@ -18,17 +18,12 @@ body {
     margin: 50px auto;
 }
 
-.appRight {
-    max-width: 700px;
-    margin: 50 px auto;
-}
-/* .list {
-    display: flex;
+.btns {
     justify-content: space-between;
-} */
+}
 
 .card {
-    width: 300px;
+    width: 350px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -54,14 +49,4 @@ body {
 
 .card.marked {
     border: 2px solid crimson;
-}
-
-.card-img {
-    display: flex;
-    align-items: center;
-    height: 150px;
-}
-
-.card img {
-    width: 100%;
 }

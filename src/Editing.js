@@ -12,7 +12,6 @@ export class Editing extends React.Component {
         post: this.props.worker.post,
         gender: this.props.worker.gender,
         fired: this.props.worker.fired,
-        marked: this.props.worker.marked
     }
 
     handleFormChange = (e) => {
@@ -76,7 +75,7 @@ export class Editing extends React.Component {
                             onChange={this.handlePostChange}>
                             {this.props.posts.map((post) => {
                                 return (
-                                    <option value={post.id} key={post.id + Math.random()}>{post.name}</option>
+                                    <option value={post.id}>{post.name}</option>
                                 )
                             })
                             }
