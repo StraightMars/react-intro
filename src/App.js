@@ -105,6 +105,16 @@ class App extends React.Component {
         })
     }
 
+    checkLockBtn() {
+        let ok = this.state.workers.filter(w => w.marked === true)
+        if (ok.length != 0) {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+
     render() {
 
         return (
@@ -135,10 +145,10 @@ class App extends React.Component {
                         </tr>
                         <tr>
                             <td>
-                                <button style={{width: '200px'}} onClick={() => this.addWorker()}>
+                                <button style={{ width: '200px' }} onClick={() => this.addWorker()}>
                                     Добавить нового сотрудника
                               </button>
-                                <button style={{marginLeft: 22, width: '150px'}} onClick={() => this.deleteWorker()}>
+                                <button name="deleteBtn" disabled={this.checkLockBtn()} style={{ marginLeft: 22, width: '150px' }} onClick={() => this.deleteWorker()}>
                                     Удалить сотрудника
                               </button>
                             </td>

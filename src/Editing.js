@@ -73,6 +73,11 @@ export class Editing extends React.Component {
                             required
                             name="post"
                             onChange={this.handlePostChange}>
+                            <option
+                                defaultValue={this.props.posts.id}
+                                >
+                                {this.props.posts.name}
+                            </option>
                             {this.props.posts.map((post) => {
                                 return (
                                     <option value={post.id}>{post.name}</option>
