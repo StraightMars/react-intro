@@ -11,7 +11,8 @@ export class Editing extends React.Component {
         birthDate: this.props.worker.birthDate,
         post: this.props.worker.post,
         gender: this.props.worker.gender,
-        fired: this.props.worker.fired
+        fired: this.props.worker.fired,
+        marked: this.props.worker.marked
     }
 
     handleFormChange = (e) => {
@@ -22,7 +23,7 @@ export class Editing extends React.Component {
     }
 
     handlePostChange = (e) => {
-        const { name, value} = e.target;
+        const { name, value } = e.target;
         let valueInt = parseInt(value)
         this.setState({
             [name]: valueInt,
@@ -39,11 +40,9 @@ export class Editing extends React.Component {
     handleBirthChange = (e) => {
         const { name, valueAsNumber } = e.target;
         let d = new Date(valueAsNumber);
-        //console.log(new Date(d))
         this.setState({
             [name]: d,
         })
-        console.log(this.state)
     }
 
     render() {
@@ -53,7 +52,7 @@ export class Editing extends React.Component {
                     <h4>
                         <u>
                             ФИО
-                    </u>
+                        </u>
                         {': '}
                         <input
                             className="inputName"
@@ -68,17 +67,16 @@ export class Editing extends React.Component {
                     <p>
                         <u>
                             Должность
-                    </u>
+                        </u>
                         {': '}
                         <select
                             className="inputPost"
                             required
                             name="post"
-                        //key="post"
                             onChange={this.handlePostChange}>
                             {this.props.posts.map((post) => {
                                 return (
-                                <option value={post.id} key={post.id+Math.random()}>{post.name}</option>
+                                    <option value={post.id} key={post.id + Math.random()}>{post.name}</option>
                                 )
                             })
                             }
@@ -87,50 +85,45 @@ export class Editing extends React.Component {
                     <p>
                         <u>
                             Дата рождения
-                    </u>
+                        </u>
                         {': '}
                         <input
                             type="date"
                             name="birthDate"
-                            //key="birthdate"
-                            //defaultValue={this.props.worker.birthDate}
                             onChange={this.handleBirthChange}
-                            
+
                         />
                     </p>
                     <p>
                         <u>
                             Пол
-                    </u>
+                        </u>
                         {': '}
                         <input
                             type="radio"
                             value="MALE"
                             name="gender"
-                            //key="genderMale"
                             defaultChecked={this.props.worker.gender == 'MALE' ? true : false}
                             onChange={this.handleFormChange}
                         />
                         Мужской
-                    <input
+                        <input
                             type="radio"
                             value="FEMALE"
                             name="gender"
-                            //key="genderFemale"
                             defaultChecked={this.props.worker.gender == 'FEMALE' ? true : false}
                             onChange={this.handleFormChange}
                         />
                         Женский
-                </p>
+                    </p>
                     <p>
                         <u>
                             Уволен
-                    </u>
+                        </u>
                         {': '}
                         <input
                             type="checkbox"
                             name="fired"
-                            //key="fired"
                             defaultChecked={this.props.worker.fired}
                             onChange={this.handleFiredChange}
                         />
